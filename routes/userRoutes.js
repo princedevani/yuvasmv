@@ -18,8 +18,8 @@ const userRouter = Router();
 
 
 userRouter.post("/login", userLogin)
-userRouter.post("/logout", auth, userLogout)
-userRouter.post("/logoutall", auth, userLogoutAll)
+userRouter.get("/logout", auth, userLogout)
+userRouter.get("/logoutall", auth, userLogoutAll)
 
 
 userRouter.get("/member/:id", auth, getSingleMember)

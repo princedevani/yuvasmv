@@ -3,7 +3,7 @@ const User = require("../../models/User");
 
 exports.forgotPassword = async(req,res) => {
     try{
-        const u = await User.getUserInfo(req.body.userid);
+        const u = await User.getUserInfo(req.body.email);
         const isMatch = await bcrypt.compare(req.body.password, u.password);
         if(isMatch){
             throw new Error("Old password & Current password can't be same")

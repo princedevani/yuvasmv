@@ -16,8 +16,8 @@ const superAdminRouter = Router();
 
 superAdminRouter.post("/superadminsignup", signup)
 superAdminRouter.post("/superadminlogin", login)
-superAdminRouter.post("/superadminlogout", auth, logout)
-superAdminRouter.post("/superadminlogoutall", auth, logoutAll)
+superAdminRouter.get("/superadminlogout", auth, logout)
+superAdminRouter.get("/superadminlogoutall", auth, logoutAll)
 
 superAdminRouter.post("/adminforgotpassword", adminForgotPassword)
 superAdminRouter.post("/adminchangepassword", auth, adminChangePassword)
