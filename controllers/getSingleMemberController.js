@@ -6,7 +6,7 @@ exports.getSingleMember = async(req,res) => {
         if(!member){
             throw new Error("User not found !!")
         }
-        res.status(201).send({member})
+        res.status(201).send(member)
     }catch(error){
         res.send({error: error.message})
     }

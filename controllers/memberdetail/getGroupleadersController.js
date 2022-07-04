@@ -16,7 +16,7 @@ exports.getGroupLeaders = async(req,res) => {
     try{
         let q = req.body.length===0 ? {} : {$and : findData(req.body)}
         const list = await Member.find(q).sort({"fullname":"asc"})
-        res.status(201).send({list})
+        res.status(201).send(list)
     }catch(error){
         res.send({error: error.message})
     }
