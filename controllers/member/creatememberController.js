@@ -30,18 +30,18 @@ exports.createMember = async (req,res) =>{
         const member = new Member(newMember)
         await member.save()
 
-        const mobile = `+91${newMember.mobile}`
-        const message = `Your Id has been created. Please use this credentials for first time login.\nUserid: ${newMember.email}  Password: ${newMember.password}`
+        // const mobile = `+91${newMember.mobile}`
+        // const message = `Your Id has been created. Please use this credentials for first time login.\nUserid: ${newMember.email}  Password: ${newMember.password}`
 
-        const notificationOpts = {
-        toBinding: JSON.stringify({
-            binding_type: 'sms',
-            address: mobile,
-        }),
-        body: message,
-        };
+        // const notificationOpts = {
+        // toBinding: JSON.stringify({
+        //     binding_type: 'sms',
+        //     address: mobile,
+        // }),
+        // body: message,
+        // };
         
-        await client.notify.services(process.env.TWILIO_SMS_SERVICE).notifications.create(notificationOpts)
+        // await client.notify.services(process.env.TWILIO_SMS_SERVICE).notifications.create(notificationOpts)
 
         res.status(201).send({newMember})
 

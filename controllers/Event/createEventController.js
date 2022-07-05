@@ -23,7 +23,7 @@ exports.createEvent = async(req, res) => {
         }
         const event = await new Event(temp)
         await event.save()
-        res.status(200).send({OK:"OK"})
+        res.status(200).send()
 
     }catch(error){
         res.send({error: error.message})
