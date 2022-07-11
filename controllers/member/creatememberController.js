@@ -1,11 +1,11 @@
 const Member = require('../../models/Member');
-const twilio = require('twilio');
-const dotenv = require("dotenv");
-dotenv.config({path:"config/config.env"})
+// const twilio = require('twilio');
+// const dotenv = require("dotenv");
+// dotenv.config({path:"config/config.env"})
 
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
-const client = twilio(accountSid, authToken);
+// const accountSid = process.env.TWILIO_ACCOUNT_SID;
+// const authToken = process.env.TWILIO_AUTH_TOKEN;
+// const client = twilio(accountSid, authToken);
 
 
 function generatePassword() {
@@ -21,9 +21,15 @@ function generatePassword() {
 exports.createMember = async (req,res) =>{
 
     try{
-        const checkMember = await Member.checkMember(req.body.email);
+
+        let checkMember = await Member.checkMember(req.body.email);
         if(checkMember){
-            throw new Error("Member with this email already exist. Please use different one !!")
+            throw new Error(`Member with email ${req.body.email} already exist. Please use different one !!`)
+        }else{
+            checkMember = await Member.checkMember(req.body.mobile);
+            if(checkMember){
+                throw new Error(`Member with mobile ${req.body.mobile} already exist. Please use different one !!`)
+            }
         }
         let newMember = req.body;
         newMember = {...newMember,["password"]: generatePassword()}

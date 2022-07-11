@@ -11,6 +11,7 @@ const { deleteMember } = require("../controllers/member/deleteMemberController")
 const { createEvent } = require("../controllers/Event/createEventController")
 const { adminChangePassword } = require("../controllers/superadmin/adminChangePasswordController")
 const { adminForgotPassword } = require("../controllers/superadmin/adminForgotPasswordController")
+const { uploadMembers } = require("../controllers/member/uploadMembersController")
 
 const superAdminRouter = Router();
 
@@ -27,6 +28,8 @@ superAdminRouter.get("/superadminhome", auth, home)
 superAdminRouter.post("/createmember", auth, createMember)
 superAdminRouter.post("/editmember/:id", auth, editMember)
 superAdminRouter.delete("/deletemember/:id", auth, deleteMember)
+
+superAdminRouter.post("/uploadmembersdata", auth, upload.single("members"), uploadMembers)
 
 superAdminRouter.post("/createevent", auth, upload.array('photos'), createEvent)
 
