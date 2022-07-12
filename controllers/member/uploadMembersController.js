@@ -36,6 +36,7 @@ exports.uploadMembers = async(req,res) => {
         }
 
         if(header_fault.length!==0){
+            await unlinkAsync(req.file.path)
             res.status(201).send({header : header_fault, members})
             return
         }
