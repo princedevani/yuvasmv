@@ -6,9 +6,11 @@ var storage = multer.diskStorage({
       if(file.originalname.includes(".xlsx")){
         fs.mkdirsSync("./excel")
         cb(null, './excel')
+      }else{
+        fs.mkdirsSync("./photos")
+        cb(null, './photos')
       }
-      fs.mkdirsSync("./photos")
-      cb(null, './photos')
+      
     },
     filename: function (req, file, cb) {
       cb(null, file.originalname)

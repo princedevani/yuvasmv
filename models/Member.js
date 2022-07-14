@@ -59,10 +59,6 @@ const memberSchema = new mongoose.Schema({
   address2: {
     type: String,
   },
-  country: {
-    type: String,
-    required: true,
-  },
   state: {
     type: String,
     required: true,

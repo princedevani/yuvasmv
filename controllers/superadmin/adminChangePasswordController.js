@@ -16,7 +16,7 @@ exports.adminChangePassword = async(req,res) => {
             throw new Error("Old password doesn't match. Please type correct password !")
         } 
 
-        res.status(200).send()
+        res.status(200).send({})
     }catch(error){
         res.send({error: error.message})
     }

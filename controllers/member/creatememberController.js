@@ -21,7 +21,6 @@ function generatePassword() {
 exports.createMember = async (req,res) =>{
 
     try{
-
         let checkMember = await Member.checkMember(req.body.email);
         if(checkMember){
             throw new Error(`Member with email ${req.body.email} already exist. Please use different one !!`)

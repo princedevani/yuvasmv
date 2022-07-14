@@ -9,7 +9,7 @@ exports.editMember = async(req,res) => {
         }else if(member.membertype==="groupleader"){
             await Member.updateMany({groupleader: member.fullname},{groupleader:updated_member.fullname})
         }
-        res.status(201).send(member)
+        res.status(201).send({member})
     }catch(error){
         res.send({error: error.message})
     }

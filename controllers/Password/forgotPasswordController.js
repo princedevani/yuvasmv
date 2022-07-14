@@ -10,7 +10,7 @@ exports.forgotPassword = async(req,res) => {
         }
         const user = await User.findOneAndUpdate({_id: u._id},{password: await bcrypt.hash(req.body.password, 8)},{returnDocument: 'after'})
         await user.save()
-        res.status(200).send()
+        res.status(200).send({})
     }catch(error){
         res.send({error: error.message})
     }

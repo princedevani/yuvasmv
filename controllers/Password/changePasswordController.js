@@ -12,11 +12,10 @@ exports.changePassword = async(req,res) => {
         if(isMatch){
             const user = await Member.findOneAndUpdate({_id: req.user._id},{password: await bcrypt.hash(req.body.password, 8)},{returnDocument: 'after'})
             await user.save()
+            res.status(200).send({})
         }else{
             throw new Error("Old password doesn't match. Please type correct password !")
         }
-
-        res.status(200).send()
     }catch(error){
         res.send({error: error.message})
     }
