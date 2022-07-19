@@ -12,6 +12,7 @@ const { getBirthDate } = require("../controllers/todayBirthDateController")
 const { uploadProfilePic, getProfilePic, removeProfilePic } = require("../controllers/profilePicController")
 const { getLatestEvent } = require("../controllers/Event/getLatestEventController")
 const { getSingleMember } = require("../controllers/getSingleMemberController")
+const { getPhotos } = require("../controllers/getPhotosController")
 
 
 const userRouter = Router();
@@ -38,6 +39,8 @@ userRouter.get("/getprofilepic", auth, getProfilePic)
 userRouter.delete("/removeprofilepic", auth, removeProfilePic)
 
 userRouter.get("/getlatestevent", auth, getLatestEvent)
+
+userRouter.get("/getphotos", auth, getPhotos)
 
 
 module.exports = userRouter;

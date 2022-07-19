@@ -34,7 +34,7 @@ exports.removeProfilePic = async(req,res) => {
             purl: "https://res.cloudinary.com/karishma027/image/upload/v1655189955/default-profile/blank-profile_ppt6u7.webp"
         }
         const member = await Member.findByIdAndUpdate(req.user._id, {profile: profile}, { new:
-            true, runValidators: true })
+            true})
         await cloudinary.uploader.destroy(member.profile.pid)
         res.status(201).send(member)
     }
