@@ -22,6 +22,10 @@ app.use(cors());
 app.use(express.static(__dirname + '/public'));
 app.use('/photos', express.static('photos'));
 
+app.get("/", (req,res)=>{
+    res.send('Yuva-SMV Backend')
+})
+
 app.use(userRouter);
 app.use(superAdminRouter);
 
