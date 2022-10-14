@@ -1,6 +1,6 @@
 const { Router } = require("express")
 const { auth } = require('../middleware/auth')
-const { upload } = require("../utils/multer")
+//const { upload } = require("../utils/multer")
 const { userLogin } = require('../controllers/loginController')
 const { userLogout, userLogoutAll } = require('../controllers/logoutController')
 const { getAdmins } = require('../controllers/memberdetail/getAdminsController')
@@ -13,7 +13,9 @@ const { uploadProfilePic, getProfilePic, removeProfilePic } = require("../contro
 const { getLatestEvent } = require("../controllers/Event/getLatestEventController")
 const { getSingleMember } = require("../controllers/getSingleMemberController")
 const { getPhotos } = require("../controllers/getPhotosController")
-
+const multer = require("multer")
+const storage = multer.diskStorage({})
+const upload = multer({ storage })
 
 const userRouter = Router();
 
