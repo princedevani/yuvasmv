@@ -16,6 +16,7 @@ const { getPhotos } = require("../controllers/getPhotosController")
 //const multer = require("multer")
 //const storage = multer.diskStorage({})
 //const upload = multer({storage})
+//const upload = multer({dest: "/photos/"})
 
 const userRouter = Router();
 
@@ -23,7 +24,6 @@ const userRouter = Router();
 userRouter.post("/login", userLogin)
 userRouter.get("/logout", auth, userLogout)
 userRouter.get("/logoutall", auth, userLogoutAll)
-
 
 userRouter.get("/member/:id", auth, getSingleMember)
 

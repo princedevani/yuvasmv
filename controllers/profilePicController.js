@@ -6,6 +6,7 @@ const unlinkAsync = promisify(fs.unlink)
 
 exports.uploadProfilePic = async(req,res) => {
     try{
+
         const image = await cloudinary.uploader.upload(req.file.path,{folder: 'profiles'})
         let profile = {pid: image.public_id, purl: image.secure_url}
         const member = await Member.findByIdAndUpdate(req.user._id, {profile: profile}, { new:

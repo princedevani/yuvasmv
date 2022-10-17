@@ -5,6 +5,7 @@ const JWT_SECRET = "yuvasmv";
 
 exports.auth = async (req, res, next) => {
     try{
+
         const token = req.header('Authorization').replace('Bearer ', '')
         const decoded = jwt.verify(token, JWT_SECRET)
         let user;
