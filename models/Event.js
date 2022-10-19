@@ -19,7 +19,7 @@ const eventSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    photos: [{
+    files: [{
         pid:{
           type: String,
         },

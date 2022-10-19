@@ -15,6 +15,9 @@ const { uploadMembers } = require("../controllers/member/uploadMembersController
 const { uploadPhotos } = require("../controllers/superadmin/uploadPhotosController")
 const { removePhoto } = require("../controllers/superadmin/removePhotoController")
 const multer = require("multer")
+const { getLatestEvent } = require("../controllers/Event/getLatestEventController")
+const { deleteEvent } = require("../controllers/Event/deleteEventController")
+const { getSingleEvent } = require("../controllers/Event/getSingleEventController")
 const storage = multer.diskStorage({})
 const upload = multer({storage})
 
@@ -40,6 +43,8 @@ superAdminRouter.post("/uploadphotos", auth, upload.array("photos"), uploadPhoto
 superAdminRouter.delete("/removephoto/:id", auth, removePhoto)
 
 superAdminRouter.post("/createevent", auth, upload.array('photos'), createEvent)
-
+superAdminRouter.get("/getevents", auth, getLatestEvent)
+superAdminRouter.delete("/deleteevent/:id", auth, deleteEvent)
+superAdminRouter.get("/viewevent/:id", auth, getSingleEvent)
 
 module.exports = superAdminRouter;

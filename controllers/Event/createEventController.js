@@ -6,8 +6,6 @@ const unlinkAsync = promisify(fs.unlink)
 
 exports.createEvent = async(req, res) => {
     try{
-        console.log("req.file...",req.file)
-        console.log("req.files...",req.files)
         let p_array = []
         for (let index = 0; index < req.files.length; index++) {
             const element = req.files[index].path;
@@ -28,7 +26,7 @@ exports.createEvent = async(req, res) => {
             enddate: req.body.enddate,
             title: req.body.title,
             message: req.body.message,
-            photos: p_array
+            files: p_array
         }
         const event = await new Event(temp)
         await event.save()

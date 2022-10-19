@@ -14,6 +14,7 @@ const { getLatestEvent } = require("../controllers/Event/getLatestEventControlle
 const { getSingleMember } = require("../controllers/getSingleMemberController")
 const { getPhotos } = require("../controllers/getPhotosController")
 const multer = require("multer")
+const { getSingleEvent } = require("../controllers/Event/getSingleEventController")
 const storage = multer.diskStorage({})
 const upload = multer({storage})
 
@@ -40,6 +41,7 @@ userRouter.get("/getprofilepic", auth, getProfilePic)
 userRouter.delete("/removeprofilepic", auth, removeProfilePic)
 
 userRouter.get("/getlatestevent", auth, getLatestEvent)
+userRouter.get("/getevent/:id", auth, getSingleEvent)
 
 userRouter.get("/getphotos", auth, getPhotos)
 
