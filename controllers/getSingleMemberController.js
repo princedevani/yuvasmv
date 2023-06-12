@@ -7,6 +7,7 @@ exports.getSingleMember = async(req,res) => {
             throw new Error("User not found !!")
         }
         res.status(201).send(member)
+        console.log("member details",member)
     }catch(error){
         res.send({error: error.message})
     }

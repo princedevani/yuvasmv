@@ -74,8 +74,9 @@ userSchema.statics.findByCredentials = async(userid, password) => {
 }
 
 userSchema.statics.getUserInfo = async (userid) => {
+    console.log("data,,,,>",userid)
     const user = await User.findOne({ email: userid })
-  
+  console.log("data,,,,>",user)
     if (!user) {
       throw new Error("User is not present");
     }

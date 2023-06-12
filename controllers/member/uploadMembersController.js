@@ -158,6 +158,7 @@ exports.uploadMembers = async(req,res) => {
 
             member = {...member,"password": generatePassword()}
             console.log("member...".member)
+            console.log("member password",member)
             const m = new Member(member)
             await m.save()
         }

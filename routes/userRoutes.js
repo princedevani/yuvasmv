@@ -29,11 +29,11 @@ userRouter.get("/member/:id", auth, getSingleMember)
 
 userRouter.get("/getadmins", auth, getAdmins)
 userRouter.post("/getgroupleaders", auth, getGroupLeaders)
-userRouter.post("/getmembers", auth, getMembers)
+userRouter.post("/getmembers", getMembers)
 
 userRouter.post("/forgotpassword", forgotPassword)
 userRouter.post("/changepassword", auth, changePassword)
-userRouter.get("/todaybirthdate", auth, getBirthDate)
+userRouter.get("/todaybirthdate", getBirthDate)
 
 userRouter.post("/uploadprofilepic", auth, upload.single('profile'), uploadProfilePic)
 userRouter.post("/changeprofilepic", auth, upload.single('profile'), uploadProfilePic)

@@ -33,7 +33,7 @@ superAdminRouter.post("/adminchangepassword", auth, adminChangePassword)
 
 superAdminRouter.get("/superadminhome", auth, home)
 
-superAdminRouter.post("/createmember", auth, createMember)
+superAdminRouter.post("/createmember", createMember)
 superAdminRouter.post("/editmember/:id", auth, editMember)
 superAdminRouter.delete("/deletemember/:id", auth, deleteMember)
 
